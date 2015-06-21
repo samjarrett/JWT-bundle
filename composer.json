@@ -1,0 +1,23 @@
+{
+    "name": "samjarrett/jwt-bundle",
+    "description": "A Symfony2 bundle that provides the firebase/php-jwt library via the DI Container",
+    "homepage": "https://github.com/samjarrett/jwt-bundle.git",
+    "authors": [
+        {
+            "name": "Sam Jarrett",
+            "email": "samstah@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.9",
+        "firebase/php-jwt": "~2.1.0",
+        "symfony/framework-bundle": ">=2.7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SamJarrett\\JWTBundle\\": "src/"
+        }
+    }
+}
