@@ -1,6 +1,6 @@
 <?php
 
-namespace SamJarrett\JWTBundle\DependencyInjection;
+namespace SamJ\JWTBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -19,7 +19,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sam_jarrett_jwt');
+        $rootNode = $treeBuilder->root('samj_jwt');
 
         $this->addKeysSection($rootNode);
 

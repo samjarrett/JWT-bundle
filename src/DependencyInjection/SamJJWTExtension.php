@@ -1,6 +1,6 @@
 <?php
 
-namespace SamJarrett\JWTBundle\DependencyInjection;
+namespace SamJ\JWTBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -8,9 +8,9 @@ use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
-class SamJarrettJWTExtension extends Extension
+class SamJJWTExtension extends Extension
 {
-    const PROTOTYPE_SERVICE_NAME = 'sam_jarrett_jwt.manager.prototype';
+    const PROTOTYPE_SERVICE_NAME = 'samj_jwt.manager.prototype';
 
     /**
      * {@inheritdoc}
@@ -26,7 +26,7 @@ class SamJarrettJWTExtension extends Extension
         foreach ($config['keys'] as $name => $jwtKey) {
             $definition = new DefinitionDecorator(self::PROTOTYPE_SERVICE_NAME);
             $definition->replaceArgument(0, $jwtKey);
-            $container->setDefinition(sprintf('sam_jarrett_jwt.manager.%s', $name), $definition);
+            $container->setDefinition(sprintf('samj_jwt.manager.%s', $name), $definition);
         }
     }
 }

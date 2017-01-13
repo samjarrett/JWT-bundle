@@ -1,6 +1,6 @@
 <?php
 
-namespace SamJarrett\JWTBundle;
+namespace SamJ\JWTBundle;
 
 
 class Manager
