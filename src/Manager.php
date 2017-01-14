@@ -2,6 +2,7 @@
 
 namespace SamJ\JWTBundle;
 
+use Firebase\JWT\JWT;
 
 class Manager
 {
@@ -40,7 +41,7 @@ class Manager
             $allowedAlgs = array($this->alg);
         }
 
-        return \JWT::decode($jwt, $this->key, $allowedAlgs);
+        return JWT::decode($jwt, $this->key, $allowedAlgs);
     }
 
     /**
@@ -58,6 +59,6 @@ class Manager
             $alg = $this->alg;
         }
 
-        return \JWT::encode($payload, $this->key, $alg);
+        return JWT::encode($payload, $this->key, $alg);
     }
 }
