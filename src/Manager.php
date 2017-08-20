@@ -17,7 +17,7 @@ class Manager
      * @param string $key
      * @param string|null $alg
      */
-    public function __construct($key, $alg = null)
+    public function __construct(string $key, string $alg = null)
     {
         $this->key = $key;
 
@@ -31,14 +31,14 @@ class Manager
      * Decodes a JWT string into a PHP object.
      *
      * @param string      $jwt           The JWT
-     * @param array|null  $allowed_algs  List of supported verification algorithms
+     * @param array|null  $allowedAlgs  List of supported verification algorithms
      *
      * @return object      The JWT's payload as a PHP object
      */
-    public function decode($jwt, $allowedAlgs = array())
+    public function decode(string $jwt, array $allowedAlgs = [])
     {
         if (empty($allowedAlgs)) {
-            $allowedAlgs = array($this->alg);
+            $allowedAlgs = [$this->alg];
         }
 
         return JWT::decode($jwt, $this->key, $allowedAlgs);
@@ -53,7 +53,7 @@ class Manager
      *
      * @return string      A signed JWT
      */
-    public function encode($payload, $alg = null)
+    public function encode($payload, string $alg = null): string
     {
         if (empty($alg)) {
             $alg = $this->alg;
