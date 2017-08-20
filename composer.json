@@ -11,8 +11,8 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=5.3.9",
-        "firebase/php-jwt": "^4.0.0",
+        "php": ">=7.0.0",
+        "firebase/php-jwt": "^5.0.0",
         "symfony/framework-bundle": "^2.8|^3.0"
     },
     "autoload": {
