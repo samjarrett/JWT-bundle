@@ -2,6 +2,7 @@
 
 namespace SamJ\JWTBundle\DependencyInjection;
 
+use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
@@ -24,9 +25,15 @@ class SamJJWTExtension extends Extension
         $loader->load('services.xml');
 
         foreach ($config['keys'] as $name => $jwtKey) {
-            $definition = new DefinitionDecorator(self::PROTOTYPE_SERVICE_NAME);
+            $className = $this->getDefinitionClassname();
+            $definition = new $className(self::PROTOTYPE_SERVICE_NAME);
             $definition->replaceArgument(0, $jwtKey);
             $container->setDefinition(sprintf('samj_jwt.manager.%s', $name), $definition);
         }
+    }
+
+    private function getDefinitionClassname(): string
+    {
+        return class_exists(ChildDefinition::class) ? ChildDefinition::class : DefinitionDecorator::class;
     }
 }

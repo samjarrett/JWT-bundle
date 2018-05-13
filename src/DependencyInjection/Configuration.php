@@ -32,7 +32,6 @@ class Configuration implements ConfigurationInterface
     private function addKeysSection(ArrayNodeDefinition $rootNode)
     {
         $rootNode
-            ->cannotBeEmpty()
             ->isRequired()
             ->fixXmlConfig('key')
             ->children()
