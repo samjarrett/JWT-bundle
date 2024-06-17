@@ -13,7 +13,7 @@
     "require": {
         "php": ">=7.0.0",
         "firebase/php-jwt": "^5.0.0",
-        "symfony/framework-bundle": "^3.0|^4.0"
+        "symfony/framework-bundle": "^7.1.1"
     },
     "autoload": {
         "psr-4": {
